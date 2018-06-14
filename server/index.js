@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 // Serve static files from the React app.
 if (ENV === 'production') 
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.use(express.static(path.join(__dirname, '../client/build')));
 
 // app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -32,7 +32,7 @@ app.use('/users', usersRouter);
 // match one above, send back React's index.html file.
 if (ENV === 'production') {
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+    res.sendFile(path.join(__dirname + '/../client/build/index.html'));
   });
 }
 
