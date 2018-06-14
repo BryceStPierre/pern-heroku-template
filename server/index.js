@@ -25,8 +25,16 @@ app.use(cookieParser());
 if (ENV === 'production') 
   app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+if (ENV === 'production') {
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+  });
+}
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
@@ -44,6 +52,9 @@ app.use('/users', usersRouter);
 //   res.render('error');
 // });
 
-app.listen(PORT, () => { console.log(`Server listening on port ${PORT}...`); });
+
+app.listen(PORT, () => { 
+  console.log(`Server listening on port ${PORT}...`); 
+});
 
 module.exports = app;
