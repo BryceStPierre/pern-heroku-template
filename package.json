@@ -1,0 +1,30 @@
+{
+  "name": "pern-heroku-template",
+  "version": "1.0.0",
+  "description": "A template application that employs a stack consisting of PostgreSQL, Express, React, and Node.js and can easily be configured and deployed to the Heroku platform.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "",
+    "start": "node server/app.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryceStPierre/pern-heroku-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BryceStPierre/pern-heroku-template/issues"
+  },
+  "homepage": "https://github.com/BryceStPierre/pern-heroku-template#readme",
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0"
+  }
+}
