@@ -52,6 +52,10 @@ if (ENV === 'production') {
 //   res.render('error');
 // });
 
+var db = require('./database');
+db.query('SELECT NOW()', (res) => {
+  console.log(`PostgreSQL connected: ${res[0].now}.`);
+});
 
 app.listen(PORT, () => { 
   console.log(`Server listening on port ${PORT}...`); 
